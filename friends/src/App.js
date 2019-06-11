@@ -11,7 +11,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: []
+      friends: [],
+      name: "",
+      age: null,
+      email: ""
     };
   }
   //Getting data from the server
@@ -27,11 +30,37 @@ class App extends React.Component {
     // console.log(this.state.friends);
   }
 
+  //change handler
+  handleChange = event => {
+    console.log("event name", event.target.name);
+    console.log("event value", event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  //method to create new friends
+  createNewFriend = e => {
+    e.preventDefault();
+    let newFriend = {
+      name: this.state.name,
+      age: this.state.age,
+      email: this.state.email
+    };
+    axios.post("http://localhost:5000/friends", newFriend).then(response => {
+      console.log(response);
+      console.log(response.data);
+    });
+  };
+
   render() {
     return (
       <div className="App">
+        <NewFriend
+          createNewFriend={this.createNewFriend}
+          handleChange={this.handleChange}
+        />
         <FriendsList propsFriends={this.state.friends} />
-        <NewFriend />
       </div>
     );
   }
