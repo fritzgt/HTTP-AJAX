@@ -11,16 +11,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: [],
-      name: "",
-      age: null,
-      email: ""
+      friends: []
     };
   }
   //Getting data from the server
   componentDidMount() {
     axios
-      .get("http://localhost:5000/friends")
+      .get([`http://localhost:5000/friends`])
       .then(response => {
         this.setState(() => ({ friends: response.data }));
       })
@@ -30,37 +27,34 @@ class App extends React.Component {
     // console.log(this.state.friends);
   }
 
-  //change handler
-  handleChange = event => {
-    console.log("event name", event.target.name);
-    console.log("event value", event.target.value);
-    this.setState({
-      [event.target.name]: event.target.value
+  //method to create new friends
+  addFriend = friend => {
+    console.log(friend);
+
+    axios.post(`http://localhost:5000/friends`, friend).then(response => {
+      // console.log(response);
+      // console.log(response.data);
     });
   };
 
-  //method to create new friends
-  createNewFriend = e => {
-    e.preventDefault();
-    let newFriend = {
-      name: this.state.name,
-      age: this.state.age,
-      email: this.state.email
-    };
-    axios.post("http://localhost:5000/friends", newFriend).then(response => {
-      console.log(response);
-      console.log(response.data);
+  //delete friend
+
+  deleteFriend = id => {
+    console.log(`current id: ${id}`);
+    axios.delete(`http://localhost:5000/friends/${id}`).then(response => {
+      // console.log(response);
+      // console.log(response.data);
     });
   };
 
   render() {
     return (
       <div className="App">
-        <NewFriend
-          createNewFriend={this.createNewFriend}
-          handleChange={this.handleChange}
+        <NewFriend addFriend={this.addFriend} />
+        <FriendsList
+          propsFriends={this.state.friends}
+          deleteFriend={this.deleteFriend}
         />
-        <FriendsList propsFriends={this.state.friends} />
       </div>
     );
   }
