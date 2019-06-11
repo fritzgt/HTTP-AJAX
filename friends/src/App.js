@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-// import FriendsList from "./components/FriendsList";
+import FriendsList from "./components/FriendsList";
 
 import "./App.css";
 
@@ -18,20 +18,18 @@ class App extends React.Component {
     axios
       .get("http://localhost:5000/friends")
       .then(response => {
-        this.setState(() => ({ friends: response }));
+        this.setState(() => ({ friends: response.data }));
       })
       .catch(error => {
         console.error("Server Error", error);
       });
+    // console.log(this.state.friends);
   }
 
   render() {
     return (
       <div className="App">
-        {/* <FriendsList propsFriends={this.state.friends} /> */}
-        {this.state.friends.map(friend => (
-          <h1>{friend.name}</h1>
-        ))}
+        <FriendsList propsFriends={this.state.friends} />
       </div>
     );
   }
