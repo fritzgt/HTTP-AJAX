@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import FriendsList from "./components/FriendsList";
+import NewFriend from "./components/NewFriend";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <FriendsList propsFriends={this.state.friends} />
+        <NewFriend />
       </div>
     );
   }
