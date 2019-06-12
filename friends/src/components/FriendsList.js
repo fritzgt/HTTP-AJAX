@@ -22,20 +22,33 @@ class FriendsList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         {this.props.propsFriends.map(friend => (
-          <div key={friend.id}>
-            <h1> {friend.name} </h1>
-            <form onSubmit={this.deleteFriend}>
-              <button
-                type="submit"
-                name="id"
-                value={friend.id}
-                onClick={this.handleChange}
-              >
-                X
-              </button>
-            </form>
+          <div className="col-sm-6" key={friend.id}>
+            <div className="card">
+              <div className="card-body">
+                {/* content */}
+
+                <h5 className="card-title">{friend.name}</h5>
+                <p className="card-text">Age: {friend.age}</p>
+                <p className="card-text"> {friend.email}</p>
+                {/* end of content */}
+                {/* Delete button */}
+                <form onSubmit={this.deleteFriend}>
+                  <button
+                    href="#"
+                    className="btn btn-danger"
+                    type="submit"
+                    name="id"
+                    value={friend.id}
+                    onClick={this.handleChange}
+                  >
+                    x
+                  </button>
+                  {/* End of Delete button */}
+                </form>
+              </div>
+            </div>
           </div>
         ))}
       </div>

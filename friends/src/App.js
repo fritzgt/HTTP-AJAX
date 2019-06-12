@@ -3,6 +3,7 @@ import axios from "axios";
 
 import FriendsList from "./components/FriendsList";
 import NewFriend from "./components/NewFriend";
+import UpdateFriend from "./components/UpdateFriend";
 
 import "./App.css";
 
@@ -48,10 +49,26 @@ class App extends React.Component {
     });
   };
 
+  //Update friend
+  updateFriend = id => {
+    console.log(`current id: ${id}`);
+
+    axios.put(`http://localhost:5000/friends/${id}`).then(response => {
+      this.setState(() => ({ friends: response.data }));
+      // console.log(response);
+      // console.log(response.data);
+    });
+  };
+
   render() {
     return (
       <div className="App">
+        <h1> Friends React App</h1>
         <NewFriend addFriend={this.addFriend} />
+        {/* <UpdateFriend
+          updateFriend={this.updateFriend}
+          propsFriends={this.state.friends}
+        /> */}
         <FriendsList
           propsFriends={this.state.friends}
           deleteFriend={this.deleteFriend}
