@@ -15,7 +15,7 @@ class FriendsList extends React.Component {
   };
 
   deleteFriend = event => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log(`current event: ${this.state.id}`);
     this.props.deleteFriend(this.state.id);
   };

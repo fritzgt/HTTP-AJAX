@@ -30,18 +30,19 @@ class App extends React.Component {
   //method to create new friends
   addFriend = friend => {
     console.log(friend);
-
     axios.post(`http://localhost:5000/friends`, friend).then(response => {
+      this.setState(() => ({ friends: response.data }));
       // console.log(response);
       // console.log(response.data);
     });
   };
 
   //delete friend
-
   deleteFriend = id => {
     console.log(`current id: ${id}`);
+
     axios.delete(`http://localhost:5000/friends/${id}`).then(response => {
+      this.setState(() => ({ friends: response.data }));
       // console.log(response);
       // console.log(response.data);
     });
