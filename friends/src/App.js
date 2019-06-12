@@ -5,6 +5,8 @@ import FriendsList from "./components/FriendsList";
 import NewFriend from "./components/NewFriend";
 import UpdateFriend from "./components/UpdateFriend";
 
+import { Route, NavLink } from "react-router-dom";
+
 import "./App.css";
 
 //creating the main class component
@@ -63,15 +65,39 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <NavLink to="/" className="btn btn-primary">
+          Home
+        </NavLink>
+
         <h1> Friends React App</h1>
-        <NewFriend addFriend={this.addFriend} />
-        {/* <UpdateFriend
-          updateFriend={this.updateFriend}
-          propsFriends={this.state.friends}
-        /> */}
-        <FriendsList
-          propsFriends={this.state.friends}
-          deleteFriend={this.deleteFriend}
+
+        <Route
+          exact
+          path="/"
+          render={props => <NewFriend {...props} addFriend={this.addFriend} />}
+        />
+
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <FriendsList
+              {...props}
+              propsFriends={this.state.friends}
+              deleteFriend={this.deleteFriend}
+            />
+          )}
+        />
+
+        <Route
+          path="/update"
+          render={props => (
+            <UpdateFriend
+              {...props}
+              updateFriend={this.updateFriend}
+              propsFriends={this.state.friends}
+            />
+          )}
         />
       </div>
     );

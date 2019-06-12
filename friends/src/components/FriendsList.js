@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class FriendsList extends React.Component {
   constructor() {
@@ -33,6 +34,7 @@ class FriendsList extends React.Component {
                 <p className="card-text">Age: {friend.age}</p>
                 <p className="card-text"> {friend.email}</p>
                 {/* end of content */}
+
                 {/* Delete button */}
                 <form onSubmit={this.deleteFriend}>
                   <button
@@ -43,10 +45,14 @@ class FriendsList extends React.Component {
                     value={friend.id}
                     onClick={this.handleChange}
                   >
-                    x
+                    Delete
                   </button>
                   {/* End of Delete button */}
+                  {/* Direct to update and passing id in URL */}
                 </form>
+                <Link to={`/update/${friend.id}`} className="btn btn-warning">
+                  Edit
+                </Link>
               </div>
             </div>
           </div>
