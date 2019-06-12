@@ -52,14 +52,16 @@ class App extends React.Component {
   };
 
   //Update friend
-  updateFriend = id => {
-    console.log(`current id: ${id}`);
+  updateFriend = (friend, friendId) => {
+    console.log(`current id: ${friend}`);
 
-    axios.put(`http://localhost:5000/friends/${id}`).then(response => {
-      this.setState(() => ({ friends: response.data }));
-      // console.log(response);
-      // console.log(response.data);
-    });
+    axios
+      .put(`http://localhost:5000/friends/${friendId}`, friend)
+      .then(response => {
+        this.setState(() => ({ friends: response.data }));
+        // console.log(response);
+        // console.log(response.data);
+      });
   };
 
   render() {
@@ -90,7 +92,7 @@ class App extends React.Component {
         />
 
         <Route
-          path="/update"
+          path="/update/:id"
           render={props => (
             <UpdateFriend
               {...props}
