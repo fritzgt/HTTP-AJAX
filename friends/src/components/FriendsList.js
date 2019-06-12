@@ -35,8 +35,14 @@ class FriendsList extends React.Component {
                 <p className="card-text"> {friend.email}</p>
                 {/* end of content */}
 
-                {/* Delete button */}
-                <form onSubmit={this.deleteFriend}>
+                <form onSubmit={this.deleteFriend} className="btn-group">
+                  {/* Direct to update and passing id in URL */}
+
+                  <Link to={`/update/${friend.id}`} className="btn btn-warning">
+                    Edit
+                  </Link>
+                  {/* Delete button */}
+
                   <button
                     href="#"
                     className="btn btn-danger"
@@ -48,11 +54,7 @@ class FriendsList extends React.Component {
                     Delete
                   </button>
                   {/* End of Delete button */}
-                  {/* Direct to update and passing id in URL */}
                 </form>
-                <Link to={`/update/${friend.id}`} className="btn btn-warning">
-                  Edit
-                </Link>
               </div>
             </div>
           </div>
