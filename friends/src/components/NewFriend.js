@@ -33,6 +33,7 @@ class NewFriend extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="form-group">
+        <h1> Add a new Friend below</h1>
         <input
           placeholder="Name"
           type="text"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class UpdateFriend extends React.Component {
   constructor() {
@@ -38,6 +38,7 @@ class UpdateFriend extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="form-group">
+        <h1> Edit Friend info Below</h1>
         <input
           placeholder="Name"
           type="text"

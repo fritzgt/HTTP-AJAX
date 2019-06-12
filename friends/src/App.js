@@ -71,8 +71,6 @@ class App extends React.Component {
           Home
         </NavLink>
 
-        <h1> Friends React App</h1>
-
         <Route
           exact
           path="/"
