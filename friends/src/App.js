@@ -67,13 +67,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavLink to="/" className="btn btn-primary">
-          Home
-        </NavLink>
+        <nav className="navbar navbar-dark bg-dark">
+          <NavLink to="/" className="btn btn-primary">
+            Home
+          </NavLink>
+
+          <NavLink to="/newfriend" className="btn btn-primary">
+            Add New Friend
+          </NavLink>
+        </nav>
 
         <Route
           exact
-          path="/"
+          path="/newfriend"
           render={props => <NewFriend {...props} addFriend={this.addFriend} />}
         />
 
