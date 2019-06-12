@@ -32,30 +32,52 @@ class NewFriend extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="form-group">
-        <h1> Add a new Friend below</h1>
-        <input
-          placeholder="Name"
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.name}
-        />
-        <input
-          placeholder="Age"
-          type="number"
-          name="age"
-          onChange={this.handleChange}
-          value={this.state.age}
-        />
-        <input
-          placeholder="email"
-          type="text"
-          name="email"
-          onChange={this.handleChange}
-          value={this.state.email}
-        />
-        <button type="submit">Add</button>
+      <form onSubmit={this.handleSubmit} className="container">
+        <br />
+        <h1>Add New Friend</h1>
+        <br />
+        <div className="form-group row">
+          <label class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="Name"
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.name}
+              className="form-control"
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <label class="col-sm-2 col-form-label">Age</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="Age"
+              type="number"
+              name="age"
+              onChange={this.handleChange}
+              value={this.state.age}
+              className="form-control"
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <label class="col-sm-2 col-form-label">email</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="email"
+              type="text"
+              name="email"
+              onChange={this.handleChange}
+              value={this.state.email}
+              className="form-control"
+            />
+          </div>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     );
   }

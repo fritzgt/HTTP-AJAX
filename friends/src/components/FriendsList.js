@@ -25,7 +25,7 @@ class FriendsList extends React.Component {
     return (
       <div className="row">
         {this.props.propsFriends.map(friend => (
-          <div className="col-sm-6" key={friend.id}>
+          <div className="col-sm-6 " key={friend.id}>
             <div className="card">
               <div className="card-body">
                 {/* content */}
@@ -57,6 +57,7 @@ class FriendsList extends React.Component {
                 </form>
               </div>
             </div>
+            <br />
           </div>
         ))}
       </div>

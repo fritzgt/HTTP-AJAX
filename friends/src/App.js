@@ -76,13 +76,12 @@ class App extends React.Component {
             Add New Friend
           </NavLink>
         </nav>
-
+        <br />
         <Route
           exact
           path="/newfriend"
           render={props => <NewFriend {...props} addFriend={this.addFriend} />}
         />
-
         <Route
           exact
           path="/"
@@ -94,7 +93,6 @@ class App extends React.Component {
             />
           )}
         />
-
         <Route
           path="/update/:id"
           render={props => (
