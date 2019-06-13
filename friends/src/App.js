@@ -33,22 +33,28 @@ class App extends React.Component {
   //method to create new friends
   addFriend = friend => {
     console.log(friend);
-    axios.post(`http://localhost:5000/friends`, friend).then(response => {
-      this.setState(() => ({ friends: response.data }));
-      // console.log(response);
-      // console.log(response.data);
-    });
+    axios
+      .post(`http://localhost:5000/friends`, friend)
+      .then(response => {
+        this.setState(() => ({ friends: response.data }));
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
   };
 
   //delete friend
   deleteFriend = id => {
     console.log(`current id: ${id}`);
 
-    axios.delete(`http://localhost:5000/friends/${id}`).then(response => {
-      this.setState(() => ({ friends: response.data }));
-      // console.log(response);
-      // console.log(response.data);
-    });
+    axios
+      .delete(`http://localhost:5000/friends/${id}`)
+      .then(response => {
+        this.setState(() => ({ friends: response.data }));
+      })
+      .catch(error => {
+        console.error("Server Error", error);
+      });
   };
 
   //Update friend
@@ -59,8 +65,10 @@ class App extends React.Component {
       .put(`http://localhost:5000/friends/${friendId}`, friend)
       .then(response => {
         this.setState(() => ({ friends: response.data }));
-        // console.log(response);
-        // console.log(response.data);
+        console.log("Your Friend has been updated!");
+      })
+      .catch(error => {
+        console.error("Server Error", error);
       });
   };
 

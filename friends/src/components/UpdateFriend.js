@@ -42,8 +42,8 @@ class UpdateFriend extends React.Component {
         <h1>Edit current friend</h1>
         <br />
         <div className="form-group row">
-          <label class="col-sm-2 col-form-label">Name</label>
-          <div class="col-sm-10">
+          <label className="col-sm-2 col-form-label">Name</label>
+          <div className="col-sm-10">
             <input
               placeholder="Name"
               type="text"
@@ -55,8 +55,8 @@ class UpdateFriend extends React.Component {
           </div>
         </div>
         <div className="form-group row">
-          <label class="col-sm-2 col-form-label">Age</label>
-          <div class="col-sm-10">
+          <label className="col-sm-2 col-form-label">Age</label>
+          <div className="col-sm-10">
             <input
               placeholder="Age"
               type="number"
@@ -68,8 +68,8 @@ class UpdateFriend extends React.Component {
           </div>
         </div>
         <div className="form-group row">
-          <label class="col-sm-2 col-form-label">email</label>
-          <div class="col-sm-10">
+          <label className="col-sm-2 col-form-label">email</label>
+          <div className="col-sm-10">
             <input
               placeholder="email"
               type="text"
