@@ -33,11 +33,16 @@ class UpdateFriend extends React.Component {
       email: ""
     });
     this.props.updateFriend({ ...this.state }, friendId);
+    this.props.history.push("/");
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="container">
+        {/* {this.props.propsFriends.map(event => (
+          <h4>{event.name}</h4>
+        ))} */}
+
         <br />
         <h1>Edit current friend</h1>
         <br />

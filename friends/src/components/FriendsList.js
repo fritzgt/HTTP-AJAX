@@ -44,7 +44,6 @@ class FriendsList extends React.Component {
                   {/* Delete button */}
 
                   <button
-                    href="#"
                     className="btn btn-danger"
                     type="submit"
                     name="id"

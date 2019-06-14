@@ -28,6 +28,7 @@ class NewFriend extends React.Component {
       email: ""
     });
     this.props.addFriend({ ...this.state });
+    this.props.history.push("/");
   };
 
   render() {

@@ -27,7 +27,6 @@ class App extends React.Component {
       .catch(error => {
         console.error("Server Error", error);
       });
-    // console.log(this.state.friends);
   }
 
   //method to create new friends
